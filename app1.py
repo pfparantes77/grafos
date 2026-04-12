@@ -57,6 +57,12 @@ def inicializar_estado(exercicios):
     if "resolvidos" not in st.session_state:
         st.session_state["resolvidos"] = []
 
+    if "acertados" not in st.session_state:
+        st.session_state["acertados"] = []
+
+    if "falhados" not in st.session_state:
+        st.session_state["falhados"] = []
+
     if "pontos" not in st.session_state:
         st.session_state["pontos"] = 0
 
@@ -77,6 +83,8 @@ def reiniciar_app(exercicios):
     st.session_state["respostas"] = {}
     st.session_state["tentativas"] = {ex["id"]: 0 for ex in exercicios}
     st.session_state["resolvidos"] = []
+    st.session_state["acertados"] = []
+    st.session_state["falhados"] = []
     st.session_state["pontos"] = 0
     st.session_state["feedback"] = {}
     st.session_state["nome_aluno"] = ""
@@ -84,22 +92,39 @@ def reiniciar_app(exercicios):
     st.session_state["numero_aluno"] = ""
 
 
-def calcular_resolvidos_por_tema(exercicios, resolvidos_ids):
-    contagem = {}
+def calcular_estatisticas_por_tema(exercicios, acertados_ids, falhados_ids):
+    estatisticas = {}
 
     for ex in exercicios:
         tema = ex.get("tema", "Sem tema")
         ex_id = ex.get("id")
 
-        if tema not in contagem:
-            contagem[tema] = {"resolvidos": 0, "total": 0}
+        if tema not in estatisticas:
+            estatisticas[tema] = {
+                "total": 0,
+                "acertados": 0,
+                "falhados": 0,
+                "resolvidos": 0,
+                "percentagem_sucesso": 0.0,
+            }
 
-        contagem[tema]["total"] += 1
+        estatisticas[tema]["total"] += 1
 
-        if ex_id in resolvidos_ids:
-            contagem[tema]["resolvidos"] += 1
+        if ex_id in acertados_ids:
+            estatisticas[tema]["acertados"] += 1
 
-    return contagem
+        if ex_id in falhados_ids:
+            estatisticas[tema]["falhados"] += 1
+
+    for tema, dados in estatisticas.items():
+        dados["resolvidos"] = dados["acertados"] + dados["falhados"]
+
+        if dados["total"] > 0:
+            dados["percentagem_sucesso"] = (dados["acertados"] / dados["total"]) * 100
+        else:
+            dados["percentagem_sucesso"] = 0.0
+
+    return estatisticas
 
 
 def enviar_relatorio_email(
@@ -113,7 +138,8 @@ def enviar_relatorio_email(
     medalha: str,
     detalhe: str,
     exercicios,
-    resolvidos_ids,
+    acertados_ids,
+    falhados_ids,
 ):
     remetente = st.secrets["email"]["remetente"]
     password = st.secrets["email"]["password"]
@@ -123,11 +149,18 @@ def enviar_relatorio_email(
     destinatario = "pedro.arantes@aeamares.com"
     assunto = f"Relatório OP13 - {nome_aluno}"
 
-    resolvidos_por_tema = calcular_resolvidos_por_tema(exercicios, resolvidos_ids)
+    estatisticas = calcular_estatisticas_por_tema(exercicios, acertados_ids, falhados_ids)
 
     texto_temas = ""
-    for tema, dados in resolvidos_por_tema.items():
-        texto_temas += f"- {tema}: {dados['resolvidos']}/{dados['total']}\n"
+    for tema, dados in estatisticas.items():
+        texto_temas += (
+            f"- {tema}\n"
+            f"  Total: {dados['total']}\n"
+            f"  Resolvidos: {dados['resolvidos']}/{dados['total']}\n"
+            f"  Com sucesso: {dados['acertados']}\n"
+            f"  Sem sucesso: {dados['falhados']}\n"
+            f"  Percentagem de sucesso: {dados['percentagem_sucesso']:.1f}%\n\n"
+        )
 
     corpo = f"""
 Relatório automático da aplicação didática - Módulo OP13: Modelos de Grafos
@@ -255,6 +288,7 @@ def mostrar_exercicios(exercicios):
                         pontos = calcular_pontos(tentativa)
                         st.session_state["pontos"] += pontos
                         st.session_state["resolvidos"].append(ex_id)
+                        st.session_state["acertados"].append(ex_id)
                         st.session_state["feedback"][ex_id] = (
                             f"Correto à {tentativa}.ª tentativa. "
                             f"Ganhaste {pontos} ponto(s). "
@@ -264,6 +298,7 @@ def mostrar_exercicios(exercicios):
                     else:
                         if tentativa >= 3:
                             st.session_state["resolvidos"].append(ex_id)
+                            st.session_state["falhados"].append(ex_id)
                             correta = ex.get("correta")
                             st.session_state["feedback"][ex_id] = (
                                 f"Sem sucesso após 3 tentativas. "
@@ -288,15 +323,21 @@ def mostrar_resultados(exercicios):
     pontos_maximos = total_exercicios * 3
     pontos = st.session_state.get("pontos", 0)
     resolvidos_ids = st.session_state.get("resolvidos", [])
+    acertados_ids = st.session_state.get("acertados", [])
+    falhados_ids = st.session_state.get("falhados", [])
+
     resolvidos = len(resolvidos_ids)
+    acertados = len(acertados_ids)
+    falhados = len(falhados_ids)
 
     medalha, detalhe = atribuir_medalha(pontos, pontos_maximos)
-    resolvidos_por_tema = calcular_resolvidos_por_tema(exercicios, resolvidos_ids)
+    estatisticas = calcular_estatisticas_por_tema(exercicios, acertados_ids, falhados_ids)
 
-    c1, c2, c3 = st.columns(3)
+    c1, c2, c3, c4 = st.columns(4)
     c1.metric("Pontos totais", pontos)
     c2.metric("Exercícios resolvidos", resolvidos)
-    c3.metric("Pontuação máxima", pontos_maximos)
+    c3.metric("Com sucesso", acertados)
+    c4.metric("Sem sucesso", falhados)
 
     st.subheader(medalha)
     st.write(detalhe)
@@ -306,10 +347,16 @@ def mostrar_resultados(exercicios):
         st.write(f"Resolução: {percentagem_resolucao:.1f}% dos exercícios.")
 
     st.markdown("---")
-    st.subheader("Exercícios resolvidos por tema")
+    st.subheader("Desempenho por tema")
 
-    for tema, dados in resolvidos_por_tema.items():
-        st.write(f"**{tema}:** {dados['resolvidos']}/{dados['total']}")
+    for tema, dados in estatisticas.items():
+        with st.container(border=True):
+            st.write(f"**Tema:** {tema}")
+            st.write(f"Total de exercícios: {dados['total']}")
+            st.write(f"Resolvidos: {dados['resolvidos']}/{dados['total']}")
+            st.write(f"Com sucesso: {dados['acertados']}")
+            st.write(f"Sem sucesso: {dados['falhados']}")
+            st.write(f"Percentagem de sucesso: {dados['percentagem_sucesso']:.1f}%")
 
     st.markdown("---")
     st.subheader("Identificação do aluno")
@@ -342,7 +389,8 @@ def mostrar_resultados(exercicios):
                     medalha=medalha,
                     detalhe=detalhe,
                     exercicios=exercicios,
-                    resolvidos_ids=resolvidos_ids,
+                    acertados_ids=acertados_ids,
+                    falhados_ids=falhados_ids,
                 )
                 st.success("Relatório enviado com sucesso para o professor.")
             except Exception as e:
