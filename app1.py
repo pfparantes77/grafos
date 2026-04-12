@@ -322,7 +322,7 @@ def main():
     st.sidebar.markdown("---")
     st.sidebar.write("Aplicação didática para o módulo OP13 — Modelos de Grafos.")
 
-    if pagina == "Definições e exemplos":
+    if pagina == "Glossário":
         mostrar_conceitos(conceitos)
     elif pagina == "Exercícios":
         mostrar_exercicios(exercicios)
