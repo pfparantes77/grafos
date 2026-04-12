@@ -43,32 +43,32 @@ def atribuir_medalha(pontos: int, pontos_maximos: int):
 
 def inicializar_estado(exercicios):
     if "respostas" not in st.session_state:
-        st.session_state.respostas = {}
+        st.session_state["respostas"] = {}
     if "tentativas" not in st.session_state:
-        st.session_state.tentativas = {ex["id"]: 0 for ex in exercicios}
+        st.session_state["tentativas"] = {ex["id"]: 0 for ex in exercicios}
     if "resolvidos" not in st.session_state:
-        st.session_state.resolvidos = []
+        st.session_state["resolvidos"] = []
     if "pontos" not in st.session_state:
-        st.session_state.pontos = 0
+        st.session_state["pontos"] = 0
     if "feedback" not in st.session_state:
-        st.session_state.feedback = {}
+        st.session_state["feedback"] = {}
     if "nome_aluno" not in st.session_state:
-        st.session_state.nome_aluno = ""
+        st.session_state["nome_aluno"] = ""
     if "turma_aluno" not in st.session_state:
-        st.session_state.turma_aluno = ""
+        st.session_state["turma_aluno"] = ""
     if "numero_aluno" not in st.session_state:
-        st.session_state.numero_aluno = ""
+        st.session_state["numero_aluno"] = ""
 
 
 def reiniciar_app(exercicios):
-    st.session_state.respostas = {}
-    st.session_state.tentativas = {ex["id"]: 0 for ex in exercicios}
-    st.session_state.resolvidos = []
-    st.session_state.pontos = 0
-    st.session_state.feedback = {}
-    st.session_state.nome_aluno = ""
-    st.session_state.turma_aluno = ""
-    st.session_state.numero_aluno = ""
+    st.session_state["respostas"] = {}
+    st.session_state["tentativas"] = {ex["id"]: 0 for ex in exercicios}
+    st.session_state["resolvidos"] = []
+    st.session_state["pontos"] = 0
+    st.session_state["feedback"] = {}
+    st.session_state["nome_aluno"] = ""
+    st.session_state["turma_aluno"] = ""
+    st.session_state["numero_aluno"] = ""
 
 
 def enviar_relatorio_email(
@@ -82,11 +82,6 @@ def enviar_relatorio_email(
     medalha: str,
     detalhe: str,
 ):
-    """
-    Envia o relatório do aluno por email.
-    As credenciais devem estar em .streamlit/secrets.toml
-    """
-
     remetente = st.secrets["email"]["remetente"]
     password = st.secrets["email"]["password"]
     smtp_server = st.secrets["email"]["smtp_server"]
@@ -163,7 +158,7 @@ def mostrar_exercicios(exercicios):
     inicializar_estado(exercicios)
 
     total = len(exercicios)
-    resolvidos = len(st.session_state.resolvidos)
+    resolvidos = len(st.session_state["resolvidos"])
     st.progress(resolvidos / total if total else 0)
     st.caption(f"Exercícios resolvidos: {resolvidos}/{total}")
 
@@ -187,14 +182,14 @@ def mostrar_exercicios(exercicios):
                 if caminho_imagem.exists():
                     st.image(str(caminho_imagem), width=200)
 
-            if ex_id in st.session_state.resolvidos:
+            if ex_id in st.session_state["resolvidos"]:
                 st.success("Este exercício já foi resolvido.")
-                fb = st.session_state.feedback.get(ex_id, "")
+                fb = st.session_state["feedback"].get(ex_id, "")
                 if fb:
                     st.info(fb)
                 continue
 
-            tentativas_atuais = st.session_state.tentativas.get(ex_id, 0)
+            tentativas_atuais = st.session_state["tentativas"].get(ex_id, 0)
             restantes = max(0, 3 - tentativas_atuais)
             st.caption(f"Tentativas restantes: {restantes}")
 
@@ -210,14 +205,14 @@ def mostrar_exercicios(exercicios):
 
             with col1:
                 if st.button("Confirmar resposta", key=f"btn_{ex_id}"):
-                    st.session_state.tentativas[ex_id] += 1
-                    tentativa = st.session_state.tentativas[ex_id]
+                    st.session_state["tentativas"][ex_id] += 1
+                    tentativa = st.session_state["tentativas"][ex_id]
 
                     if escolha == ex.get("correta"):
                         pontos = calcular_pontos(tentativa)
-                        st.session_state.pontos += pontos
-                        st.session_state.resolvidos.append(ex_id)
-                        st.session_state.feedback[ex_id] = (
+                        st.session_state["pontos"] += pontos
+                        st.session_state["resolvidos"].append(ex_id)
+                        st.session_state["feedback"][ex_id] = (
                             f"Correto à {tentativa}.ª tentativa. "
                             f"Ganhaste {pontos} ponto(s). "
                             f"Explicação: {ex.get('explicacao', '')}"
@@ -225,9 +220,9 @@ def mostrar_exercicios(exercicios):
                         st.rerun()
                     else:
                         if tentativa >= 3:
-                            st.session_state.resolvidos.append(ex_id)
+                            st.session_state["resolvidos"].append(ex_id)
                             correta = ex.get("correta")
-                            st.session_state.feedback[ex_id] = (
+                            st.session_state["feedback"][ex_id] = (
                                 f"Sem sucesso após 3 tentativas. "
                                 f"Resposta correta: {correta}) {opcoes.get(correta, '')}. "
                                 f"Explicação: {ex.get('explicacao', '')}"
@@ -242,6 +237,8 @@ def mostrar_exercicios(exercicios):
 
 
 def mostrar_resultados(exercicios):
+    inicializar_estado(exercicios)
+
     st.title("Resultados finais")
 
     total_exercicios = len(exercicios)
@@ -266,18 +263,18 @@ def mostrar_resultados(exercicios):
     st.markdown("---")
     st.subheader("Identificação do aluno")
 
-    st.session_state.nome_aluno = st.text_input("Nome do aluno", value=st.session_state.nome_aluno)
-    st.session_state.turma_aluno = st.text_input("Turma", value=st.session_state.turma_aluno)
-    st.session_state.numero_aluno = st.text_input("Número", value=st.session_state.numero_aluno)
+    nome = st.text_input("Nome do aluno", key="nome_aluno")
+    turma = st.text_input("Turma", key="turma_aluno")
+    numero = st.text_input("Número", key="numero_aluno")
 
     st.caption(
         "Ao submeter, será enviado um relatório com a identificação e o desempenho do aluno para o email do professor."
     )
 
     if st.button("Submeter relatório ao professor"):
-        nome = st.session_state.nome_aluno.strip()
-        turma = st.session_state.turma_aluno.strip()
-        numero = st.session_state.numero_aluno.strip()
+        nome = nome.strip()
+        turma = turma.strip()
+        numero = numero.strip()
 
         if not nome:
             st.error("Indica o nome do aluno antes de submeter.")
@@ -312,6 +309,8 @@ def main():
 
     conceitos = carregar_jsons(CONCEITOS_DIR)
     exercicios = carregar_jsons(EXERCICIOS_DIR)
+
+    inicializar_estado(exercicios)
 
     st.sidebar.title("Navegação")
     pagina = st.sidebar.radio(
