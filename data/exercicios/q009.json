@@ -1,7 +1,7 @@
 {
-  "id": "q012",
+  "id": "q009",
   "tema": "Linguagem de grafos",
-  "pergunta": "Quantas arestas tem o grafo?",
+  "pergunta": "Quantos vértices tem o grafo representado?",
   "imagem": "media/imagens/grafo1.png",
   "opcoes": {
     "A": "4",
@@ -10,5 +10,5 @@
     "D": "7"
   },
   "correta": "B",
-  "explicacao": "Existem 5 arestas no total."
+  "explicacao": "O grafo tem 5 vértices identificados: A, B, C, D e E."
 }

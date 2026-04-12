@@ -1,0 +1,14 @@
+{
+  "id": "q019",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: tenta ligar todos os vértices mentalmente.\n\nO grafo é conexo?",
+  "imagem": "media/imagens/grafo2.png",
+  "opcoes": {
+    "A": "Sim",
+    "B": "Não",
+    "C": "Depende",
+    "D": "Não é um grafo"
+  },
+  "correta": "B",
+  "explicacao": "O grafo não é conexo, porque existem dois subconjuntos de vértices sem ligação entre si: {A, E, C} e {F, D, B}. As interseções das arestas no desenho não representam vértices."
+}

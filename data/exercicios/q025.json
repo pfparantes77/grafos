@@ -1,0 +1,14 @@
+{
+  "id": "q025",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: tenta encontrar caminho entre todos os vértices.\n\nO grafo é conexo?",
+  "imagem": "media/imagens/grafo3.png",
+  "opcoes": {
+    "A": "Sim",
+    "B": "Não",
+    "C": "Depende",
+    "D": "Não é grafo"
+  },
+  "correta": "A",
+  "explicacao": "Existe um caminho entre quaisquer dois vértices, logo o grafo é conexo."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q027",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: observa os vértices comuns.\n\nAs arestas BG e AF são adjacentes?",
+  "imagem": "media/imagens/grafo3.png",
+  "opcoes": {
+    "A": "Sim",
+    "B": "Não",
+    "C": "Depende",
+    "D": "Não são arestas"
+  },
+  "correta": "B",
+  "explicacao": "As arestas BG e AF não partilham nenhum vértice, logo não são adjacentes."
+}

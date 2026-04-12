@@ -2,7 +2,7 @@
   "id": "q014",
   "tema": "Linguagem de grafos",
   "pergunta": "O grafo é:",
-  "imagem": "media/imagens/grafo_estrela.png",
+  "imagem": "media/imagens/grafo1.png",
   "opcoes": {
     "A": "completo",
     "B": "desconexo",

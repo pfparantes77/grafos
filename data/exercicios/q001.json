@@ -1,14 +1,14 @@
 {
   "id": "q001",
-  "tema": "Introdução aos grafos",
-  "pergunta": "Num mapa de cidade, os cruzamentos são representados por pontos. Em teoria de grafos, esses pontos chamam-se:",
-  "imagem": "",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: observa atentamente os pontos assinalados.\n\nQual é o conjunto dos vértices do grafo G?",
+  "imagem": "media/imagens/grafoG.png",
   "opcoes": {
-    "A": "arestas",
-    "B": "vértices",
-    "C": "circuitos",
-    "D": "laços"
+    "A": "{A, B, C, D}",
+    "B": "{A, B, D}",
+    "C": "{A, B, C}",
+    "D": "{A, C, D}"
   },
-  "correta": "B",
-  "explicacao": "Os cruzamentos são modelados por vértices, enquanto as ruas são modeladas por arestas."
+  "correta": "A",
+  "explicacao": "O grafo G tem quatro vértices identificados: A, B, C e D."
 }

@@ -1,0 +1,14 @@
+{
+  "id": "q026",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: observa as ligações.\n\nAs arestas BC e CD são adjacentes?",
+  "imagem": "media/imagens/grafo3.png",
+  "opcoes": {
+    "A": "Sim",
+    "B": "Não",
+    "C": "Depende",
+    "D": "Não são arestas"
+  },
+  "correta": "A",
+  "explicacao": "As arestas BC e CD partilham o vértice C, logo são adjacentes."
+}

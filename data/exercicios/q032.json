@@ -1,0 +1,14 @@
+{
+  "id": "q032",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Indique um circuito com início em A.",
+  "imagem": "media/imagens/grafo4.png",
+  "opcoes": {
+    "A": "A E B C D A",
+    "B": "A B C D F E A",
+    "C": "A B F D C E A",
+    "D": "A C B E F A"
+  },
+  "correta": "B",
+  "explicacao": "Um circuito é um percurso fechado, ou seja, começa e termina no mesmo vértice, usando arestas existentes no grafo. Na opção B, o percurso A-B-C-D-F-E-A é válido, porque todas as ligações correspondem a arestas do grafo e o percurso termina novamente em A. As restantes opções incluem ligações que não existem no grafo, como D-A, D-C-E-A com C-E-A possível mas a sequência não fecha corretamente com arestas válidas, ou A-C."
+}

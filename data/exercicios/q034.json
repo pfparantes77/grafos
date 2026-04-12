@@ -1,0 +1,14 @@
+{
+  "id": "q034",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Indique um caminho de A para F.",
+  "imagem": "media/imagens/grafo4.png",
+  "opcoes": {
+    "A": "A B F",
+    "B": "A C F",
+    "C": "A E D F",
+    "D": "A D F"
+  },
+  "correta": "A",
+  "explicacao": "Um caminho é uma sequência de vértices consecutivos ligados por arestas do grafo. Na opção A, o percurso A-B-F é válido, porque existem as arestas AB e BF. As restantes opções incluem ligações que não existem no grafo, como A-C, E-D ou A-D."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q031",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Indique um caminho de B para D que passe em quatro arestas.",
+  "imagem": "media/imagens/grafo4.png",
+  "opcoes": {
+    "A": "B C F E A",
+    "B": "B A E F D",
+    "C": "B F E C D",
+    "D": "B E F C D"
+  },
+  "correta": "D",
+  "explicacao": "Um caminho de B para D com quatro arestas deve ligar vértices consecutivos por arestas existentes no grafo. Na opção D, o percurso B-E-F-C-D usa exatamente quatro arestas: BE, EF, FC e CD. As restantes opções incluem ligações que não existem no grafo ou não representam corretamente um caminho de B para D com quatro arestas."
+}

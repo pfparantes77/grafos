@@ -1,0 +1,14 @@
+{
+  "id": "q030",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: usa a soma dos graus.\n\nUm grafo tem os vértices A, B, C, D e E e graus 2, 2, 3, 4 e 5, respetivamente. Quantas arestas tem o grafo?",
+  "imagem": "",
+  "opcoes": {
+    "A": "6",
+    "B": "7",
+    "C": "8",
+    "D": "16"
+  },
+  "correta": "C",
+  "explicacao": "A soma dos graus é 2 + 2 + 3 + 4 + 5 = 16. Como a soma dos graus é igual a 2 vezes o número de arestas, o grafo tem 16/2 = 8 arestas."
+}

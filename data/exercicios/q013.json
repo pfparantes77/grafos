@@ -2,7 +2,7 @@
   "id": "q013",
   "tema": "Linguagem de grafos",
   "pergunta": "Qual par NÃO é adjacente?",
-  "imagem": "media/imagens/grafo_estrela.png",
+  "imagem": "media/imagens/grafo1.png",
   "opcoes": {
     "A": "A e D",
     "B": "B e E",

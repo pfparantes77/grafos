@@ -1,0 +1,14 @@
+{
+  "id": "q002",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: identifica todas as ligações do grafo.\n\nQual é o conjunto das arestas do grafo G?",
+  "imagem": "media/imagens/grafoG.png",
+  "opcoes": {
+    "A": "{AD, DB, DA, BB}",
+    "B": "{AD, AB, DA, BC}",
+    "C": "{AA, AB, DA, BD}",
+    "D": "{AD, DA, AB, BB}"
+  },
+  "correta": "D",
+  "explicacao": "No grafo G existe a aresta AD, a aresta DA a aresta AB e um laço em B, que pode ser representado por BB."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q018",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: observa todos os vértices.\n\nO grafo é regular?",
+  "imagem": "media/imagens/grafo2.png",
+  "opcoes": {
+    "A": "Sim, todos têm grau 2",
+    "B": "Sim, todos têm grau 3",
+    "C": "Não, existem graus diferentes",
+    "D": "Não tem vértices suficientes"
+  },
+  "correta": "A",
+  "explicacao": "Todos os vértices têm grau 2, logo o grafo é regular de grau 2."
+}

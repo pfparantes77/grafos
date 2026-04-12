@@ -1,0 +1,14 @@
+{
+  "id": "q006",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: conta as arestas incidentes em A.\n\nQual é o grau do vértice A?",
+  "imagem": "media/imagens/grafoG.png",
+  "opcoes": {
+    "A": "1",
+    "B": "2",
+    "C": "3",
+    "D": "4"
+  },
+  "correta": "C",
+  "explicacao": "O vértice A está ligado a D (arestas paralelas) e a B, logo tem grau 3."
+}

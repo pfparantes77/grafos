@@ -1,0 +1,14 @@
+{
+  "id": "q029",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: soma os graus dos vértices.\n\nPode existir um grafo com os vértices A, B, C, D e E e graus 2, 2, 3, 4 e 6, respetivamente?",
+  "imagem": "",
+  "opcoes": {
+    "A": "Sim, porque existe um vértice de grau 6",
+    "B": "Sim, porque a soma dos graus é 17",
+    "C": "Não, porque a soma dos graus é ímpar",
+    "D": "Não, porque todos os graus têm de ser iguais"
+  },
+  "correta": "C",
+  "explicacao": "A soma dos graus é 2 + 2 + 3 + 4 + 6 = 17. Pela relação de Handshaking, a soma dos graus de um grafo tem de ser par, logo tal grafo não pode existir."
+}

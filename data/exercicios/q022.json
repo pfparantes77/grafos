@@ -1,0 +1,14 @@
+{
+  "id": "q022",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: observa as ligações.\n\nQual dos seguintes é um par de vértices adjacentes?",
+  "imagem": "media/imagens/grafo3.png",
+  "opcoes": {
+    "A": "A e D",
+    "B": "F e G",
+    "C": "E e B",
+    "D": "C e F"
+  },
+  "correta": "B",
+  "explicacao": "Os vértices F e G estão ligados diretamente por uma aresta."
+}

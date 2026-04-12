@@ -2,7 +2,7 @@
   "id": "q011",
   "tema": "Linguagem de grafos",
   "pergunta": "Qual é o grau do vértice B?",
-  "imagem": "media/imagens/grafo_estrela.png",
+  "imagem": "media/imagens/grafo1.png",
   "opcoes": {
     "A": "1",
     "B": "2",

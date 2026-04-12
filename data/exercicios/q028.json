@@ -1,0 +1,14 @@
+{
+  "id": "q028",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: escolhe 3 vértices ligados.\n\nQual das seguintes opções pode representar um subgrafo de ordem 3?",
+  "imagem": "media/imagens/grafo3.png",
+  "opcoes": {
+    "A": "{A, B, G}",
+    "B": "{A, E, C}",
+    "C": "{F, C, D}",
+    "D": "{E, B, C}"
+  },
+  "correta": "A",
+  "explicacao": "Os vértices A, B e G podem formar um subgrafo, pois existem ligações entre eles."
+}

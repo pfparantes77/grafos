@@ -1,0 +1,14 @@
+{
+  "id": "q021",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: conta os vértices.\n\nQual é a ordem do grafo?",
+  "imagem": "media/imagens/grafo3.png",
+  "opcoes": {
+    "A": "5",
+    "B": "6",
+    "C": "7",
+    "D": "8"
+  },
+  "correta": "C",
+  "explicacao": "A ordem do grafo é o número de vértices. Existem 7 vértices: A, B, C, D, E, F e G."
+}

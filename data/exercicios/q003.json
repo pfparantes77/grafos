@@ -1,0 +1,14 @@
+{
+  "id": "q003",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: procura vértices sem arestas incidentes.\n\nQual é o vértice isolado do grafo G?",
+  "imagem": "media/imagens/grafoG.png",
+  "opcoes": {
+    "A": "A",
+    "B": "B",
+    "C": "C",
+    "D": "D"
+  },
+  "correta": "C",
+  "explicacao": "O vértice C não está ligado a qualquer aresta, logo é um vértice isolado."
+}

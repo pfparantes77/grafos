@@ -1,0 +1,14 @@
+{
+  "id": "q004",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: observa se existe alguma aresta que começa e termina no mesmo vértice.\n\nQual dos seguintes vértices tem um laço?",
+  "imagem": "media/imagens/grafoG.png",
+  "opcoes": {
+    "A": "A",
+    "B": "B",
+    "C": "C",
+    "D": "D"
+  },
+  "correta": "B",
+  "explicacao": "No grafo G existe um laço no vértice B."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q035",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Indique um caminho de A para C que passe em sete arestas.",
+  "imagem": "media/imagens/grafo4.png",
+  "opcoes": {
+    "A": "A E B C F E B C",
+    "B": "A B C D F E C",
+    "C": "A B F E B D F C",
+    "D": "A B E F D A B C"
+  },
+  "correta": "A",
+  "explicacao": "Na opção A, a sequência A-E-B-C-F-E-B-C percorre exatamente 7 arestas: AE, EB, BC, CF, FE, EB e BC, terminando no vértice C. As restantes opções estão erradas porque não têm 7 arestas ou incluem ligações que não existem no grafo, como B-D ou D-A."
+}

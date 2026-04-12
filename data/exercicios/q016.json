@@ -1,0 +1,14 @@
+{
+  "id": "q016",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: desenha o grafo.\n\nQual é a ordem do grafo?",
+  "imagem": "media/imagens/grafo2.png",
+  "opcoes": {
+    "A": "4",
+    "B": "5",
+    "C": "6",
+    "D": "7"
+  },
+  "correta": "C",
+  "explicacao": "A ordem de um grafo é o número de vértices. Existem 6 vértices: A, B, C, D, E e F."
+}

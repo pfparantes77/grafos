@@ -1,0 +1,14 @@
+{
+  "id": "q008",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: identifica os vértices sem incidência e usa a definição de grafo conexo.\n\nO grafo G é conexo?",
+  "imagem": "media/imagens/grafoG.png",
+  "opcoes": {
+    "A": "Sim",
+    "B": "Não",
+    "C": "Só se ignorarmos o vértice C",
+    "D": "Não é possível determinar"
+  },
+  "correta": "B",
+  "explicacao": "O grafo não é conexo, porque o vértice C está isolado e não existe caminho entre C e os restantes vértices."
+}

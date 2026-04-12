@@ -1,0 +1,14 @@
+{
+  "id": "q024",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: verifica se todos os vértices têm o mesmo grau.\n\nO grafo é regular?",
+  "imagem": "media/imagens/grafo3.png",
+  "opcoes": {
+    "A": "Sim, todos têm grau 2",
+    "B": "Sim, todos têm grau 3",
+    "C": "Não, existem graus diferentes",
+    "D": "Não é possível determinar"
+  },
+  "correta": "C",
+  "explicacao": "Os vértices têm graus diferentes, logo o grafo não é regular."
+}

@@ -1,0 +1,14 @@
+{
+  "id": "q005",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: verifica se há duas arestas a ligar o mesmo par de vértices.\n\nO grafo G tem arestas paralelas?",
+  "imagem": "media/imagens/grafoG.png",
+  "opcoes": {
+    "A": "Sim, entre A e D",
+    "B": "Sim, entre A e B",
+    "C": "Não",
+    "D": "Sim, entre B e C"
+  },
+  "correta": "A",
+  "explicacao": "Existem duas arestas distintas a ligar o mesmo par de vértices, A e D."
+}

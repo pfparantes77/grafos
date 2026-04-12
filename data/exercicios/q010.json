@@ -2,13 +2,13 @@
   "id": "q010",
   "tema": "Linguagem de grafos",
   "pergunta": "Quais são os vértices adjacentes ao vértice A?",
-  "imagem": "media/imagens/grafo_estrela.png",
+  "imagem": "media/imagens/grafo1.png",
   "opcoes": {
     "A": "B e C",
-    "B": "D e C",
-    "C": "B e E",
+    "B": "B e E",
+    "C": "D e C",
     "D": "C e E"
   },
-  "correta": "B",
+  "correta": "C",
   "explicacao": "O vértice A está ligado apenas aos vértices D e C."
 }

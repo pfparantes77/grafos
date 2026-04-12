@@ -1,0 +1,14 @@
+{
+  "id": "q023",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: conta as arestas que chegam a B.\n\nQual é o grau do vértice B?",
+  "imagem": "media/imagens/grafo3.png",
+  "opcoes": {
+    "A": "2",
+    "B": "3",
+    "C": "4",
+    "D": "5"
+  },
+  "correta": "C",
+  "explicacao": "O vértice B está ligado a A, C, D e G, logo tem grau 4."
+}

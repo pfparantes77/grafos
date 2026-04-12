@@ -1,0 +1,14 @@
+{
+  "id": "q020",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Sugestão: pensa nas ligações possíveis.\n\nO grafo é completo?",
+  "imagem": "media/imagens/grafo2.png",
+  "opcoes": {
+    "A": "Sim",
+    "B": "Não",
+    "C": "Apenas parcialmente",
+    "D": "Não se pode determinar"
+  },
+  "correta": "B",
+  "explicacao": "Nem todos os vértices estão ligados entre si, logo não é um grafo completo."
+}

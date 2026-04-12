@@ -1,0 +1,14 @@
+{
+  "id": "q033",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Indique um circuito que inicie em E e com comprimento 5.",
+  "imagem": "media/imagens/grafo4.png",
+  "opcoes": {
+    "A": "E A B C F E",
+    "B": "E B F D C E",
+    "C": "E C B A F E",
+    "D": "E B C D F E"
+  },
+  "correta": "D",
+  "explicacao": "Um circuito começa e termina no mesmo vértice. O comprimento corresponde ao número de arestas percorridas. Na opção D, o percurso E-B-C-D-F-E utiliza exatamente 5 arestas válidas do grafo: EB, BC, CD, DF e FE. As restantes opções incluem ligações que não existem no grafo, como A-F, B-F ou C-E."
+}
