@@ -1,0 +1,14 @@
+{
+  "id": "q001",
+  "tema": "Introdução aos grafos",
+  "pergunta": "Num mapa de cidade, os cruzamentos são representados por pontos. Em teoria de grafos, esses pontos chamam-se:",
+  "imagem": "",
+  "opcoes": {
+    "A": "arestas",
+    "B": "vértices",
+    "C": "circuitos",
+    "D": "laços"
+  },
+  "correta": "B",
+  "explicacao": "Os cruzamentos são modelados por vértices, enquanto as ruas são modeladas por arestas."
+}

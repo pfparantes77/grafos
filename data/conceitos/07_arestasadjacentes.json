@@ -1,0 +1,8 @@
+{
+  "id": "arestasadjacentes",
+  "titulo": "Arestas adjacentes",
+  "definicao": "São arestas que são incidentes no mesmo vértice (tem um vértice em comum).",
+  "exemplo_texto": "",
+  "imagem": "",
+  "video": ""
+}

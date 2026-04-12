@@ -1,0 +1,8 @@
+{
+  "id": "passeio",
+  "titulo": "Percurso ou passeio",
+  "definicao": "É uma qualquer sequência de vértices adjacentes, podendo haver repetição de vértices.",
+  "exemplo_texto": "",
+  "imagem": "",
+  "video": ""
+}

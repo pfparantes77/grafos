@@ -1,0 +1,14 @@
+{
+  "id": "q014",
+  "tema": "Linguagem de grafos",
+  "pergunta": "O grafo é:",
+  "imagem": "media/imagens/grafo_estrela.png",
+  "opcoes": {
+    "A": "completo",
+    "B": "desconexo",
+    "C": "conexo",
+    "D": "regular"
+  },
+  "correta": "C",
+  "explicacao": "Existe caminho entre todos os vértices."
+}

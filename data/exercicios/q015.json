@@ -1,0 +1,14 @@
+{
+  "id": "q015",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Quem tem maior grau?",
+  "imagem": "media/imagens/grafo_estrela.png",
+  "opcoes": {
+    "A": "A",
+    "B": "B",
+    "C": "Todos iguais",
+    "D": "Nenhum"
+  },
+  "correta": "C",
+  "explicacao": "Todos têm grau 2."
+}

@@ -1,0 +1,8 @@
+{
+  "id": "lacete",
+  "titulo": "Laço ou lacete",
+  "definicao": "É uma aresta que liga um vértice a ele próprio.\n\n**Observação.** Para determinação do grau de um vértice, os lacetes contam como duas arestas incidentes no vértice.",
+  "exemplo_texto": "",
+  "imagem": "",
+  "video": ""
+}

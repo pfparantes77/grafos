@@ -1,0 +1,8 @@
+{
+  "id": "grafo",
+  "titulo": "Grafo",
+  "definicao": "Um grafo é um esquema ou uma representação constituída por um conjunto finito de pontos, chamados vértices ou nós, e por segmentos que unem os vértices, chamadas arestas ou arcos",
+  "exemplo_texto": "",
+  "imagem": "",
+  "video": "media/videos/grafo.mp4"
+}

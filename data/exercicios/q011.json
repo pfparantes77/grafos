@@ -1,0 +1,14 @@
+{
+  "id": "q011",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Qual é o grau do vértice B?",
+  "imagem": "media/imagens/grafo_estrela.png",
+  "opcoes": {
+    "A": "1",
+    "B": "2",
+    "C": "3",
+    "D": "4"
+  },
+  "correta": "B",
+  "explicacao": "B está ligado a E e D, logo grau 2."
+}

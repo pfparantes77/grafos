@@ -1,0 +1,14 @@
+{
+  "id": "q012",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Quantas arestas tem o grafo?",
+  "imagem": "media/imagens/grafo_estrela.png",
+  "opcoes": {
+    "A": "4",
+    "B": "5",
+    "C": "6",
+    "D": "7"
+  },
+  "correta": "B",
+  "explicacao": "Existem 5 arestas no total."
+}

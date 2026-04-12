@@ -1,0 +1,8 @@
+{
+  "id": "grafoconexo",
+  "titulo": "Grafo conexo",
+  "definicao": "É um grafo no qual existe sempre uma sequência de arestas a unir quaisquer dois dos seus vértices",
+  "exemplo_texto": "",
+  "imagem": "",
+  "video": ""
+}

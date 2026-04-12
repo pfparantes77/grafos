@@ -1,0 +1,14 @@
+{
+  "id": "q013",
+  "tema": "Linguagem de grafos",
+  "pergunta": "Qual par NÃO é adjacente?",
+  "imagem": "media/imagens/grafo_estrela.png",
+  "opcoes": {
+    "A": "A e D",
+    "B": "B e E",
+    "C": "A e B",
+    "D": "C e D"
+  },
+  "correta": "C",
+  "explicacao": "A e B não têm aresta direta."
+}
