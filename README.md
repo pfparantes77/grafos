@@ -1,2 +1,2 @@
 # grafos
-App para estudo dos garfos
+App para estudo dos grafos
