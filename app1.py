@@ -142,7 +142,7 @@ def mostrar_conceitos(conceitos):
             if imagem:
                 caminho_imagem = BASE_DIR / imagem
                 if caminho_imagem.exists():
-                    st.image(str(caminho_imagem), width=300)
+                    st.image(str(caminho_imagem), width=200)
 
             video = conceito.get("video")
             if video:
@@ -185,7 +185,7 @@ def mostrar_exercicios(exercicios):
             if imagem:
                 caminho_imagem = BASE_DIR / imagem
                 if caminho_imagem.exists():
-                    st.image(str(caminho_imagem), width=300)
+                    st.image(str(caminho_imagem), width=200)
 
             if ex_id in st.session_state.resolvidos:
                 st.success("Este exercício já foi resolvido.")
@@ -316,13 +316,13 @@ def main():
     st.sidebar.title("Navegação")
     pagina = st.sidebar.radio(
         "Escolhe uma área",
-        ["Glossário", "Exercícios", "Resultados"]
+        ["Definições e exemplos", "Exercícios", "Resultados"]
     )
 
     st.sidebar.markdown("---")
     st.sidebar.write("Aplicação didática para o módulo OP13 — Modelos de Grafos.")
 
-    if pagina == "Glossário":
+    if pagina == "Definições e exemplos":
         mostrar_conceitos(conceitos)
     elif pagina == "Exercícios":
         mostrar_exercicios(exercicios)
