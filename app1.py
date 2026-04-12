@@ -142,7 +142,7 @@ def mostrar_conceitos(conceitos):
             if imagem:
                 caminho_imagem = BASE_DIR / imagem
                 if caminho_imagem.exists():
-                    st.image(str(caminho_imagem), width=200)
+                    st.image(str(caminho_imagem), width=300)
 
             video = conceito.get("video")
             if video:
@@ -185,7 +185,7 @@ def mostrar_exercicios(exercicios):
             if imagem:
                 caminho_imagem = BASE_DIR / imagem
                 if caminho_imagem.exists():
-                    st.image(str(caminho_imagem), width=200)
+                    st.image(str(caminho_imagem), width=300)
 
             if ex_id in st.session_state.resolvidos:
                 st.success("Este exercício já foi resolvido.")
