@@ -76,7 +76,7 @@ def mostrar_conceitos(conceitos):
             if imagem:
                 caminho_imagem = BASE_DIR / imagem
                 if caminho_imagem.exists():
-                    st.image(str(caminho_imagem), width=200)
+                    st.image(str(caminho_imagem), width=400)
 
             video = conceito.get("video")
             if video:
