@@ -316,7 +316,7 @@ def main():
     st.sidebar.title("Navegação")
     pagina = st.sidebar.radio(
         "Escolhe uma área",
-        ["Definições e exemplos", "Exercícios", "Resultados"]
+        ["Glossário", "Exercícios", "Resultados"]
     )
 
     st.sidebar.markdown("---")
