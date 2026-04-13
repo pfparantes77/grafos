@@ -3,6 +3,7 @@ import smtplib
 from email.message import EmailMessage
 from pathlib import Path
 from datetime import datetime
+import mimetypes
 
 import streamlit as st
 
@@ -63,7 +64,9 @@ def inicializar_estado(exercicios_escolha_multipla):
         st.session_state["respostas"] = {}
 
     if "tentativas" not in st.session_state:
-        st.session_state["tentativas"] = {ex["id"]: 0 for ex in exercicios_escolha_multipla if "id" in ex}
+        st.session_state["tentativas"] = {
+            ex["id"]: 0 for ex in exercicios_escolha_multipla if "id" in ex
+        }
 
     if "resolvidos" not in st.session_state:
         st.session_state["resolvidos"] = []
@@ -92,7 +95,9 @@ def inicializar_estado(exercicios_escolha_multipla):
 
 def reiniciar_app(exercicios_escolha_multipla):
     st.session_state["respostas"] = {}
-    st.session_state["tentativas"] = {ex["id"]: 0 for ex in exercicios_escolha_multipla if "id" in ex}
+    st.session_state["tentativas"] = {
+        ex["id"]: 0 for ex in exercicios_escolha_multipla if "id" in ex
+    }
     st.session_state["resolvidos"] = []
     st.session_state["acertados"] = []
     st.session_state["falhados"] = []
@@ -137,16 +142,45 @@ def calcular_estatisticas_por_tema(exercicios, acertados_ids, falhados_ids):
     return estatisticas
 
 
-def enviar_email(msg: EmailMessage):
-    remetente = st.secrets["email"]["remetente"]
-    password = st.secrets["email"]["password"]
-    smtp_server = st.secrets["email"]["smtp_server"]
-    smtp_port = int(st.secrets["email"]["smtp_port"])
+def obter_config_email():
+    """
+    Lê a configuração de email a partir de st.secrets.
+    Estrutura esperada no secrets.toml:
 
-    with smtplib.SMTP(smtp_server, smtp_port) as smtp:
-        smtp.starttls()
-        smtp.login(remetente, password)
-        smtp.send_message(msg)
+    [email]
+    remetente = "..."
+    password = "..."
+    smtp_server = "..."
+    smtp_port = "587"
+    """
+    try:
+        email_cfg = st.secrets["email"]
+        remetente = email_cfg["remetente"]
+        password = email_cfg["password"]
+        smtp_server = email_cfg["smtp_server"]
+        smtp_port = int(email_cfg["smtp_port"])
+        return remetente, password, smtp_server, smtp_port
+    except Exception as e:
+        raise RuntimeError(
+            "Configuração de email inválida em st.secrets. "
+            "Verifica se existe a secção [email] com as chaves "
+            "'remetente', 'password', 'smtp_server' e 'smtp_port'. "
+            f"Erro técnico: {e}"
+        )
+
+
+def enviar_email(msg: EmailMessage):
+    remetente, password, smtp_server, smtp_port = obter_config_email()
+
+    try:
+        with smtplib.SMTP(smtp_server, smtp_port, timeout=30) as smtp:
+            smtp.ehlo()
+            smtp.starttls()
+            smtp.ehlo()
+            smtp.login(remetente, password)
+            smtp.send_message(msg)
+    except Exception as e:
+        raise RuntimeError(f"Falha no envio SMTP: {e}")
 
 
 def enviar_relatorio_email(
@@ -163,7 +197,7 @@ def enviar_relatorio_email(
     acertados_ids,
     falhados_ids,
 ):
-    remetente = st.secrets["email"]["remetente"]
+    remetente, _, _, _ = obter_config_email()
     destinatario = "pedro.arantes@aeamares.com"
 
     assunto = f"Relatório OP13 - {nome_aluno}"
@@ -223,7 +257,7 @@ def enviar_submissao_ficheiro_email(
     titulo_exercicio: str,
     uploaded_file,
 ):
-    remetente = st.secrets["email"]["remetente"]
+    remetente, _, _, _ = obter_config_email()
     destinatario = "pedro.arantes@aeamares.com"
 
     data_hora = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
@@ -259,9 +293,12 @@ Ficheiro enviado
 
     ficheiro_bytes = uploaded_file.getvalue()
     ficheiro_nome = uploaded_file.name
-    mime_type = uploaded_file.type or "application/octet-stream"
 
-    if "/" in mime_type:
+    mime_type = uploaded_file.type
+    if not mime_type:
+        mime_type, _ = mimetypes.guess_type(ficheiro_nome)
+
+    if mime_type and "/" in mime_type:
         maintype, subtype = mime_type.split("/", 1)
     else:
         maintype, subtype = "application", "octet-stream"
@@ -474,10 +511,16 @@ def mostrar_exercicios_submissao(exercicios_submissao):
     else:
         exercicios_visiveis = exercicios_submissao
 
+    opcoes_exercicios = {}
+
     for ex in exercicios_visiveis:
         ex_id = ex.get("id", "")
         titulo = ex.get("titulo", "")
         tema = ex.get("tema", "Exercício")
+
+        identificador = f"{ex_id} - {titulo}" if titulo else ex_id
+        if identificador.strip():
+            opcoes_exercicios[identificador] = ex_id
 
         with st.container(border=True):
             st.markdown(f"### {tema} — {ex_id}")
@@ -515,38 +558,40 @@ def mostrar_exercicios_submissao(exercicios_submissao):
         "Evita fotografias com rostos ou outros dados pessoais desnecessários."
     )
 
-    nome = st.text_input("Nome do aluno", key="sub_nome")
-    turma = st.text_input("Turma", key="sub_turma")
-    numero = st.text_input("Número", key="sub_numero")
-    titulo_exercicio = st.text_input(
-        "Identificação do exercício ou tarefa",
-        key="sub_titulo_exercicio",
-        placeholder="Ex.: s001"
-    )
+    with st.form("form_submissao_resolucao", clear_on_submit=True):
+        nome = st.text_input("Nome do aluno")
+        turma = st.text_input("Turma")
+        numero = st.text_input("Número")
 
-    uploaded_file = st.file_uploader(
-        "Carrega a tua resolução",
-        type=["png", "jpg", "jpeg", "pdf"],
-        key="upload_resolucao"
-    )
+        exercicio_escolhido = st.selectbox(
+            "Seleciona o exercício a submeter",
+            options=[""] + list(opcoes_exercicios.keys())
+        )
 
-    if uploaded_file is not None:
-        mime_type = uploaded_file.type or ""
+        uploaded_file = st.file_uploader(
+            "Carrega a tua resolução",
+            type=["png", "jpg", "jpeg", "pdf"]
+        )
 
-        if mime_type.startswith("image/"):
-            st.image(
-                uploaded_file,
-                caption="Pré-visualização do ficheiro enviado",
-                use_container_width=True
-            )
-        elif mime_type == "application/pdf":
-            st.info(f"Ficheiro PDF selecionado: {uploaded_file.name}")
-        else:
-            st.warning("Formato carregado, mas sem pré-visualização disponível.")
+        submeter = st.form_submit_button("Submeter resolução ao professor")
 
-        if st.button("Submeter resolução ao professor"):
+        if submeter:
             if not nome.strip():
                 st.error("Indica o nome do aluno.")
+                return
+
+            if not exercicio_escolhido.strip():
+                st.error("Seleciona o exercício a submeter.")
+                return
+
+            if uploaded_file is None:
+                st.error("Carrega um ficheiro antes de submeter.")
+                return
+
+            tamanho_maximo_mb = 15
+            tamanho_bytes = len(uploaded_file.getvalue())
+            if tamanho_bytes > tamanho_maximo_mb * 1024 * 1024:
+                st.error(f"O ficheiro excede o limite de {tamanho_maximo_mb} MB.")
                 return
 
             try:
@@ -554,7 +599,7 @@ def mostrar_exercicios_submissao(exercicios_submissao):
                     nome_aluno=nome.strip(),
                     turma=turma.strip(),
                     numero=numero.strip(),
-                    titulo_exercicio=titulo_exercicio.strip(),
+                    titulo_exercicio=exercicio_escolhido.strip(),
                     uploaded_file=uploaded_file,
                 )
                 st.success("Submissão enviada com sucesso para o professor.")
