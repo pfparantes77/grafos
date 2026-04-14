@@ -349,7 +349,7 @@ def mostrar_videos_tutoriais():
         {
             "titulo": "Introdução aos grafos",
             "tipo": "url",
-            "fonte": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+            "fonte": "",
             "descricao": "Substitui este link pelo vídeo que pretenderes."
         },
         {
