@@ -349,20 +349,20 @@ def mostrar_videos_tutoriais():
         {
             "titulo": "Introdução aos grafos",
             "tipo": "url",
-            "fonte": "",
-            "descricao": "Substitui este link pelo vídeo que pretenderes."
+            "fonte": "https://www.youtube.com/watch?v=dmsuPfpeHvI",
+            "descricao": "."
         },
         {
             "titulo": "Circuitos de Euler",
             "tipo": "local",
             "fonte": BASE_DIR / "media" / "videos" / "euler.mp4",
-            "descricao": "Exemplo de vídeo armazenado localmente."
+            "descricao": ""
         },
         {
             "titulo": "Circuitos de Hamilton",
             "tipo": "local",
             "fonte": BASE_DIR / "media" / "videos" / "hamilton.mp4",
-            "descricao": "Exemplo de vídeo armazenado localmente."
+            "descricao": ""
         },
     ]
 
