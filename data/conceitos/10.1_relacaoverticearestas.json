@@ -1,0 +1,8 @@
+{
+  "id": "relacaoverticearestas",
+  "titulo": "Relação entre vértices e arestas",
+  "definicao": "A  soma de todos os graus dos vértices de um grafo é um número par igual ao dobro do número de arestas.",
+  "exemplo_texto": "",
+  "imagem": "",
+  "video": "media/videos/10.1_relacaoverticesarestas.mp4"
+}
