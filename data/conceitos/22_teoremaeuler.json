@@ -1,0 +1,8 @@
+{
+  "id": "teoremaeuler",
+  "titulo": "Teorema de Euler",
+  "definicao": "Um grafo diz-se **euleriano** ou **de euler** se e só se é conexo e todos os seus vértices têm grau par.",
+  "exemplo_texto": "",
+  "imagem": "",
+  "video": "media/videos/22_teoremaeuler.mp4"
+}

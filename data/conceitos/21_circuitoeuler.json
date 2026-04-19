@@ -1,0 +1,8 @@
+{
+  "id": "circuitoeuler",
+  "titulo": "Circuito de Euler",
+  "definicao": "Um **circuito de Euler** é um circuito que passa em todas as arestas uma única vez.\n\n Um grafo diz-se **euleriano** ou **de euler** se admite um circuito de Euler.",
+  "exemplo_texto": "",
+  "imagem": "",
+  "video": "media/videos/21_circuitoeuler.mp4"
+}
