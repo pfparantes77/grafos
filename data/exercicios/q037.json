@@ -1,0 +1,14 @@
+{
+  "id": "q037",
+  "tema": "Grafo de Euler",
+  "pergunta": "Porque razão o Grafo II não admite um circuito de Euler?",
+  "imagem": "media/imagens/grafo5.png",
+  "opcoes": {
+    "A": "Porque não é conexo",
+    "B": "Porque tem vértices de grau ímpar",
+    "C": "Porque tem demasiadas arestas",
+    "D": "Porque tem um número par de vértices"
+  },
+  "correta": "A",
+  "explicacao": "Embora os vértices do Grafo II tenham grau par, o grafo não é conexo, pois está dividido em duas componentes separadas. Como um circuito de Euler só existe em grafos conexos com todos os vértices de grau par, o Grafo II não é euleriano."
+}

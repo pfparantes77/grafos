@@ -1,0 +1,14 @@
+{
+  "id": "q038",
+  "tema": "Grafo de Euler",
+  "pergunta": "Porque se pode afirmar que o grafo da figura é euleriano?",
+  "imagem": "media/imagens/grafo6.png",
+  "opcoes": {
+    "A": "Porque é um grafo completo",
+    "B": "Porque é conexo e todos os vértices têm grau par",
+    "C": "Porque tem exatamente dois vértices de grau ímpar",
+    "D": "Porque tem 7 vértices e 12 arestas"
+  },
+  "correta": "B",
+  "explicacao": "Um grafo é euleriano quando é conexo e todos os seus vértices têm grau par. No grafo da figura, existe caminho entre quaisquer dois vértices e todos os vértices têm grau par, pelo que o grafo admite um circuito de Euler."
+}

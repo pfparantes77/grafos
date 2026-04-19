@@ -1,0 +1,14 @@
+{
+  "id": "q039",
+  "tema": "Grafo de Euler",
+  "pergunta": "O grafo representado é euleriano?",
+  "imagem": "media/imagens/grafo6.png",
+  "opcoes": {
+    "A": "Sim, porque todos os vértices têm grau par",
+    "B": "Sim, porque é conexo",
+    "C": "Não, porque tem exatamente dois vértices de grau ímpar",
+    "D": "Não, porque tem arestas paralelas"
+  },
+  "correta": "C",
+  "explicacao": "Um grafo é euleriano (admite circuito de Euler) se for conexo e todos os vértices tiverem grau par. Neste grafo existem dois vértices de grau ímpar (A e C), pelo que não admite circuito de Euler. No entanto, admite um caminho de Euler."
+}

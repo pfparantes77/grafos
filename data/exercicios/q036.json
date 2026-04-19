@@ -1,0 +1,14 @@
+{
+  "id": "q036",
+  "tema": "Grafo de Euler",
+  "pergunta": "Qual dos seguintes grafos admite um circuito de Euler?",
+  "imagem": "media/imagens/grafo5.png",
+  "opcoes": {
+    "A": "Apenas o Grafo I",
+    "B": "Apenas o Grafo II",
+    "C": "Nenhum dos grafos",
+    "D": "Os Grafos I e II"
+  },
+  "correta": "A",
+  "explicacao": "Um grafo admite um circuito de Euler quando é conexo e todos os seus vértices têm grau par. O Grafo I é conexo e todos os vértices têm grau par. O Grafo II tem todos os vértices de grau par, mas não é conexo. O Grafo III é conexo, mas não tem todos os vértices de grau par."
+}
