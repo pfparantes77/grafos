@@ -1,0 +1,8 @@
+{
+  "id": "Caminhoeuler",
+  "titulo": "Caminho de Euler",
+  "definicao": "Um **caminho de euler** ou **caminho euleriano** é um caminho que passa uma única vez em cada uma das arestas do grafo.\n\n**Observação 1:** Um grafo admite um caminho de Euler se e só se é conexo e tiver zero ou dois vértices com grau ímpar. \n\n**Observação 2:** No caso de haver dois vértices com grau ímpar, tal caminho terá início num desses vértices e terminará no outro.",
+  "exemplo_texto": "",
+  "imagem": "",
+  "video": "media/videos/23_caminhoeuler.mp4"
+}

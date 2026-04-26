@@ -1,0 +1,8 @@
+{
+  "id": "eulerizacao",
+  "titulo": "Eulerização",
+  "definicao": "Ao processo que consiste transformar um grafo que não é de Euler num grafo de Euler, duplicando apenas as arestas, chama-se **eulerização de um grafo**.\n\n**Observação:** Chama-se melhor eulerização àquela que acrescente um número mínimo de arestas.",
+  "exemplo_texto": "",
+  "imagem": "",
+  "video": "media/videos/24_eulerizacao.mp4"
+}
