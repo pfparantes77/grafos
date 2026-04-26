@@ -2,7 +2,7 @@
   "id": "q042",
   "tema": "Grafo de Euler",
   "pergunta": "O grafo representado admite um caminho de Euler?",
-  "imagem": "media/imagens/grafo8.png",
+  "imagem": "media/imagens/grafo9.png",
   "opcoes": {
     "A": "Sim, porque todos os vértices têm grau par",
     "B": "Sim, porque tem exatamente dois vértices de grau ímpar",
