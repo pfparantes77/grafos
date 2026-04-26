@@ -1,0 +1,14 @@
+{
+  "id": "q040",
+  "tema": "Grafo de Euler",
+  "pergunta": "O grafo representado é euleriano?",
+  "imagem": "media/imagens/grafo8.png",
+  "opcoes": {
+    "A": "Sim, porque é conexo",
+    "B": "Sim, porque tem 4 vértices",
+    "C": "Não, porque tem vértices de grau ímpar",
+    "D": "Não, porque tem poucas arestas"
+  },
+  "correta": "C",
+  "explicacao": "Um grafo é euleriano se for conexo e todos os vértices tiverem grau par. Neste grafo, existem vértices de grau ímpar, logo não admite circuito de Euler."
+}

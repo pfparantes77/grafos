@@ -1,0 +1,14 @@
+{
+  "id": "q043",
+  "tema": "Grafo de Euler",
+  "pergunta": "Qual das seguintes opções permite transformar o grafo num grafo euleriano?",
+  "imagem": "media/imagens/grafo8.png",
+  "opcoes": {
+    "A": "Adicionar a aresta AE",
+    "B": "Adicionar a aresta AC",
+    "C": "Remover a aresta DE",
+    "D": "Adicionar a aresta BD"
+  },
+  "correta": "D",
+  "explicacao": "Para tornar o grafo euleriano, todos os vértices devem ter grau par. Como B e D são os únicos vértices de grau ímpar, ao adicionar a aresta BD, ambos passam a ter grau par, tornando o grafo euleriano."
+}

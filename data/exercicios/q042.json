@@ -1,0 +1,14 @@
+{
+  "id": "q042",
+  "tema": "Grafo de Euler",
+  "pergunta": "O grafo representado admite um caminho de Euler?",
+  "imagem": "media/imagens/grafo8.png",
+  "opcoes": {
+    "A": "Sim, porque todos os vértices têm grau par",
+    "B": "Sim, porque tem exatamente dois vértices de grau ímpar",
+    "C": "Não, porque não é conexo",
+    "D": "Não, porque tem 5 vértices"
+  },
+  "correta": "B",
+  "explicacao": "Um grafo admite um caminho de Euler quando é conexo e tem exatamente dois vértices de grau ímpar. Neste grafo, os vértices B e D têm grau ímpar, pelo que existe um caminho de Euler."
+}
