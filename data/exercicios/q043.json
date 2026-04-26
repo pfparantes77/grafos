@@ -2,7 +2,7 @@
   "id": "q043",
   "tema": "Grafo de Euler",
   "pergunta": "Qual das seguintes opções permite transformar o grafo num grafo euleriano?",
-  "imagem": "media/imagens/grafo8.png",
+  "imagem": "media/imagens/grafo9.png",
   "opcoes": {
     "A": "Adicionar a aresta AE",
     "B": "Adicionar a aresta AC",
